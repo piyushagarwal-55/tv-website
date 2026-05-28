@@ -174,25 +174,25 @@ const shopGroups = {
 
 const productCards = [
   {
-    name: "Samsung Neo Vision 75",
+    name: "TCL X955 Max 75",
     label: "Best for cinema rooms",
     price: "From Rs.1,49,990",
     image: "/section13_slider1.png",
   },
   {
-    name: "Samsung OLED Aura",
+    name: "TCL OLED Aura",
     label: "Self-lit contrast",
     price: "From Rs.1,24,990",
     image: "/d7f9f40f5d8c2ff7efad2091074f8da7.webp",
   },
   {
-    name: "Samsung Sports Pro",
+    name: "TCL Sports Pro",
     label: "Smooth motion and glare control",
     price: "From Rs.74,990",
     image: "/7be4b70170ee98eb5321860f53915511.webp",
   },
   {
-    name: "Samsung Mini LED Max",
+    name: "TCL Mini LED Max",
     label: "Bright-room favorite",
     price: "From Rs.89,990",
     image: "/section13_slider3.png",
@@ -200,7 +200,7 @@ const productCards = [
 ];
 
 const serviceItems = [
-  { icon: ShieldCheck, title: "Samsung Care+", copy: "Extended support, priority repair, and accidental damage options." },
+  { icon: ShieldCheck, title: "TCL Care+", copy: "Extended support, priority repair, and accidental damage options." },
   { icon: Truck, title: "Free delivery", copy: "Scheduled doorstep delivery with premium installation guidance." },
   { icon: Headphones, title: "Expert setup", copy: "Get help choosing the right size, mount, soundbar, and room layout." },
 ];
@@ -215,10 +215,12 @@ const featureIcons = [
 
 type ShopKey = keyof typeof shopGroups;
 
-function SamsungLogo({ className = "text-black" }: { className?: string }) {
+function TclLogo({ className = "" }: { className?: string }) {
   return (
-    <span className={`inline-flex items-center text-[20px] font-extrabold tracking-[0.18em] ${className}`}>
-      SAMSUNG
+    <span
+      className={`inline-flex h-8 items-center rounded-[3px] bg-[#e30613] px-3 text-[19px] font-extrabold tracking-[0.1em] text-white ${className}`}
+    >
+      TCL
     </span>
   );
 }
@@ -397,28 +399,11 @@ export default function TvStorefront() {
   return (
     <div ref={mainRef} className="min-h-screen bg-[#f5f5f2] text-black">
       <header className="nav-shell fixed inset-x-0 top-0 z-50 border-b border-black/8 bg-white/92 backdrop-blur-2xl">
-        {showRegion && (
-          <div className="hidden items-center justify-between gap-4 border-b border-black/8 px-5 py-2 text-[12px] text-black/70 md:flex">
-            <div className="flex items-center gap-3">
-              <span>Choose your location and language.</span>
-              <button className="inline-flex items-center gap-2 rounded-full border border-black/10 px-3 py-1 font-semibold text-black transition hover:border-black/30" type="button">
-                USA <ChevronDown size={14} />
-              </button>
-            </div>
-            <div className="flex items-center gap-2">
-              <button className="rounded-full bg-black px-4 py-1.5 text-[11px] font-bold text-white transition hover:bg-neutral-800" type="button">
-                Continue
-              </button>
-              <IconButton label="Dismiss location bar" onClick={() => setShowRegion(false)}>
-                <X size={16} />
-              </IconButton>
-            </div>
-          </div>
-        )}
+       
 
         <div className="mx-auto flex h-16 max-w-[1440px] items-center justify-between px-4 md:px-8">
-          <a aria-label="Samsung home" className="shrink-0" href="#top">
-            <SamsungLogo />
+          <a aria-label="TCL home" className="shrink-0" href="#top">
+            <TclLogo />
           </a>
 
           <nav className="hidden items-center gap-8 text-[14px] font-bold text-black/75 lg:flex">
@@ -447,7 +432,7 @@ export default function TvStorefront() {
         {menuOpen && (
           <div className="absolute inset-x-0 top-full border-t border-black/8 bg-white p-5 shadow-[0_20px_60px_rgba(15,23,42,0.12)] lg:hidden">
             <div className="mb-5 flex items-center justify-between">
-              <span className="text-sm font-semibold">Explore Samsung Vision</span>
+              <span className="text-sm font-semibold">Explore TCL Vision</span>
               <IconButton label="Close menu" onClick={() => setMenuOpen(false)}>
                 <X size={18} />
               </IconButton>
@@ -554,7 +539,7 @@ export default function TvStorefront() {
             <div className="reveal mx-auto mb-12 max-w-3xl text-center">
               <p className="mb-3 text-[13px] font-semibold uppercase tracking-[0.24em] text-[#0b5cff]">Guided discovery</p>
               <h2 className="text-balance text-[38px] font-bold leading-[1.03] tracking-[-0.02em] md:text-[64px]">
-                Discover the Samsung TV that&apos;s right for you
+                Discover the TCL TV that&apos;s right for you
               </h2>
             </div>
 
@@ -825,13 +810,13 @@ export default function TvStorefront() {
 
             <div className="grid gap-5 lg:grid-cols-[1.2fr_0.8fr]">
               <div className="reveal relative min-h-[420px] overflow-hidden rounded-[28px] bg-white">
-                <Image alt="" className="object-cover" fill sizes="60vw" src="/SamsungCare_PCD_DT.avif" />
+                <Image alt="" className="object-cover" fill sizes="60vw" src="/TCLCare_PCD_DT.avif" />
                 <div className="absolute inset-0 bg-gradient-to-r from-white/88 via-white/50 to-transparent" />
                 <div className="relative z-10 flex min-h-[420px] max-w-lg flex-col justify-center p-7 md:p-10">
                   <BadgePercent className="mb-5 text-[#0b5cff]" size={34} />
                   <h3 className="text-[36px] font-bold leading-[1] tracking-[-0.02em] md:text-[56px]">Bundle comfort with confidence.</h3>
                   <p className="mt-5 text-[15px] font-semibold leading-7 text-black/58">
-                    Add Samsung Care+, installation support, and expert recommendations for a calmer premium purchase.
+                    Add TCL Care+, installation support, and expert recommendations for a calmer premium purchase.
                   </p>
                 </div>
               </div>
@@ -856,7 +841,7 @@ export default function TvStorefront() {
           <div className="relative z-10 mx-auto flex max-w-[1260px] flex-col justify-between gap-8 px-5 md:flex-row md:items-center md:px-8">
             <div>
               <p className="mb-3 inline-flex items-center gap-2 text-[13px] font-semibold uppercase tracking-[0.24em] text-white/50">
-                <Zap size={17} /> Samsung Vision Store
+                <Zap size={17} /> TCL Vision Store
               </p>
               <h2 className="max-w-2xl text-balance text-[40px] font-bold leading-[1] tracking-[-0.02em] md:text-[68px]">
                 Make the whole wall feel cinematic.
@@ -872,7 +857,7 @@ export default function TvStorefront() {
       <footer className="bg-[#050505] px-5 py-10 text-white md:px-8">
         <div className="mx-auto flex max-w-[1260px] flex-col justify-between gap-8 border-t border-white/10 pt-8 md:flex-row md:items-center">
           <div>
-            <SamsungLogo className="text-white" />
+            <TclLogo />
             <p className="mt-3 max-w-md text-[13px] font-medium leading-6 text-white/45">
               Cinematic screens, expert care, and a calmer way to choose the TV that belongs in your space.
             </p>

@@ -3,11 +3,11 @@ import "./globals.css";
 
 export const metadata: Metadata = {
   title: {
-    default: "Samsung Vision Store | Premium TVs",
-    template: "%s | Samsung Vision Store",
+    default: "TCL Vision Store | Premium TVs",
+    template: "%s | TCL Vision Store",
   },
   description:
-    "A premium Samsung-inspired TV shopping experience with cinematic product discovery, comparison, and support.",
+    "A premium TCL TV shopping experience with cinematic product discovery, comparison, and support.",
 };
 
 export default function RootLayout({
