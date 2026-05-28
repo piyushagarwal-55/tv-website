@@ -1,0 +1,246 @@
+@import "tailwindcss";
+
+@theme inline {
+  --font-sans: "Inter", "Outfit", sans-serif;
+  --font-body: "Inter", "Outfit", sans-serif;
+}
+
+:root {
+  --ink: #050505;
+  --muted: #6b7280;
+  --line: rgba(15, 23, 42, 0.1);
+  --page: #f5f5f2;
+  --blue: #0b5cff;
+  --cobalt: #10286f;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  overflow-x: hidden;
+  background: var(--page);
+  color: var(--ink);
+  font-family: var(--font-body);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+button,
+a {
+  font: inherit;
+}
+
+img,
+video {
+  display: block;
+}
+
+::selection {
+  background: #050505;
+  color: #ffffff;
+}
+
+.tv-scrollbar {
+  scrollbar-width: thin;
+  scrollbar-color: rgba(15, 23, 42, 0.24) transparent;
+}
+
+.tv-scrollbar::-webkit-scrollbar {
+  height: 6px;
+  width: 6px;
+}
+
+.tv-scrollbar::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.tv-scrollbar::-webkit-scrollbar-thumb {
+  background: rgba(15, 23, 42, 0.24);
+  border-radius: 999px;
+}
+
+.noise-layer {
+  pointer-events: none;
+  position: absolute;
+  inset: 0;
+  opacity: 0.08;
+  mix-blend-mode: soft-light;
+  background-image:
+    linear-gradient(rgba(255, 255, 255, 0.08) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.08) 1px, transparent 1px);
+  background-size: 38px 38px;
+}
+
+.hero-panel::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(circle at 72% 42%, rgba(46, 93, 255, 0.3), transparent 28%),
+    linear-gradient(90deg, rgba(0, 0, 0, 0.94) 0%, rgba(0, 0, 0, 0.65) 38%, rgba(0, 0, 0, 0.12) 72%, rgba(0, 0, 0, 0.42) 100%);
+}
+
+.hero-image-active {
+  transform: translateZ(0);
+  animation: heroImageIn 900ms cubic-bezier(0.22, 1, 0.36, 1) both;
+  will-change: opacity;
+}
+
+@keyframes heroImageIn {
+  from {
+    opacity: 0.2;
+    transform: translateZ(0) scale(1.025);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateZ(0) scale(1);
+  }
+}
+
+.image-sheen::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  transform: translateX(-110%) skewX(-14deg);
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.35), transparent);
+  transition: transform 0.9s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.image-sheen:hover::before {
+  transform: translateX(110%) skewX(-14deg);
+}
+
+.magnetic-card {
+  transform: translateY(0) scale(1);
+  transition:
+    transform 0.45s cubic-bezier(0.22, 1, 0.36, 1),
+    box-shadow 0.45s ease,
+    border-color 0.3s ease;
+}
+
+.magnetic-card:hover {
+  transform: translateY(-8px) scale(1.01);
+  box-shadow: 0 24px 60px rgba(15, 23, 42, 0.12);
+}
+
+.reveal,
+.reveal-soft,
+.category-chip,
+.compare-card,
+.shop-card,
+.service-item {
+  backface-visibility: hidden;
+  transform: translateZ(0);
+  will-change: transform, opacity;
+}
+
+.flagship-panel,
+.finder-card,
+.compare-card,
+.shop-card,
+.service-item {
+  contain: layout paint;
+}
+
+.flagship-image,
+.cinema-screen,
+.marquee-strip {
+  backface-visibility: hidden;
+  transform: translateZ(0);
+}
+
+.text-balance {
+  text-wrap: balance;
+}
+
+@keyframes marquee {
+  0% {
+    transform: translateX(0);
+  }
+
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+.animate-marquee {
+  width: max-content;
+  animation: marquee 26s linear infinite;
+}
+
+.animate-marquee:hover {
+  animation-play-state: paused;
+}
+
+@keyframes softPulse {
+  0%,
+  100% {
+    opacity: 0.55;
+    transform: scale(1);
+  }
+
+  50% {
+    opacity: 0.95;
+    transform: scale(1.04);
+  }
+}
+
+.soft-pulse {
+  animation: softPulse 3.8s ease-in-out infinite;
+}
+
+@keyframes floatScreen {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+.float-screen {
+  animation: floatScreen 5s ease-in-out infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    scroll-behavior: auto !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+@media (max-width: 767px) {
+  .noise-layer,
+  .image-sheen::before,
+  .soft-pulse {
+    display: none;
+  }
+
+  .hero-panel::after {
+    background: linear-gradient(180deg, rgba(0, 0, 0, 0.32) 0%, rgba(0, 0, 0, 0.72) 62%, rgba(0, 0, 0, 0.9) 100%);
+  }
+
+  .magnetic-card:hover {
+    transform: none;
+    box-shadow: none;
+  }
+
+  .hero-image-active {
+    animation-duration: 500ms;
+  }
+}
